@@ -1,0 +1,864 @@
+/* ===== الإعدادات العامة للصفحة ===== */
+/* هذه القيم هي الأساس الذي يحدد ألوان الصفحة والوضع الافتراضي لكل العناصر */
+:root {
+  color-scheme: dark;
+  --bg: #000000;
+  --text: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-text: #d8d8d8;
+  --card-title: #ffffff;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  background-image: none;
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+  --bg: #f7f7f7;
+  --text: #111111;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --card-text: #555555;
+  --card-title: #111111;
+}
+
+/* ===== شريط الرأس والنافبار ===== */
+/* الهيدر يثبت القائمة أعلى الصفحة ويمنحها عرضًا كاملًا ومظهرًا واضحًا */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  padding: 15px 30px;
+  z-index: 1000;
+  box-sizing: border-box;
+  transform: none;
+  will-change: auto;
+}
+/* النافبار: يحتوي على العناصر داخل الهيدر ويضعها في وسط الصفحة مع مسافات مناسبة */
+nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  z-index: 1000;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(5px);
+  border-radius: 30px;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: 0;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+@media (max-width: 650px) {
+  nav {
+    justify-content: center;
+    gap: 8px 10px;
+    padding: 10px 12px;
+  }
+
+  .a-button {
+    margin-right: 0;
+  }
+
+  .a-button,
+  .lang-toggle,
+  .theme-toggle {
+    position: static;
+    transform: none;
+    margin: 0;
+  }
+
+  .header-links {
+    width: auto;
+    justify-content: center;
+    order: 2;
+    margin-top: 0;
+    gap: 6px;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    order: 3;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .header-links a {
+    padding: 4px 6px;
+    font-size: 13px;
+  }
+}
+
+.header-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  transform: none;
+}
+
+.header-links a:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: var(--text);
+  transform: none;
+}
+
+/* ===== زر الموسيقى والتأثيرات عند المرور عليه ===== */
+/* الزر الرئيسي: شكل زر الموسيقى، موقعه في الهيدر، ولونه وتأثيره عند المرور */
+.a-button {
+  position: static;
+  transform: none;
+  background: linear-gradient(135deg, #f7d46b 0%, #b8860b 45%, #fff2b8 100%);
+  color: #3a2500;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+  transition: box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.a-button:hover {
+  box-shadow: 0 10px 24px rgba(184, 134, 11, 0.42);
+  filter: brightness(1.08);
+  transform: none;
+}
+
+.lang-toggle,
+.theme-toggle {
+  position: static;
+  transform: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.25s ease;
+}
+
+.lang-toggle {
+  margin-right: 0;
+}
+
+.lang-toggle:hover,
+.theme-toggle:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transform: none;
+}
+
+body.rtl {
+  direction: rtl;
+}
+
+body.rtl nav,
+body.rtl .header-links,
+body.rtl .nav-actions {
+  flex-direction: row;
+  direction: ltr;
+}
+
+body.rtl h1 {
+  text-align: right;
+}
+
+/* ===== تأثير المطر الموسيقي ===== */
+/* هذا العنصر يستخدم لإظهار الرموز الموسيقية فوق الصفحة دون تعطيل التفاعل مع عناصر الواجهة */
+.music-rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1500;
+}
+
+.music-note {
+  position: absolute;
+  top: -60px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  animation: fall-music 2.2s linear forwards;
+}
+
+/* ===== قسم المقدمة الرئيسية (Hero Section) ===== */
+/* هنا يتم تنسيق العنوان الرئيسي والصورة التقديمية بحيث يبدوان جميلين ومتماسكين */
+/* العنوان الرئيسي: يضع النص في مكانه ويعطيه تأثير تدرج لوني جميل */
+h1 {
+  position: relative;
+  z-index: 10;
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  max-width: 600px;
+  text-align: left;
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.12);
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px 30px 20px;
+  flex-wrap: wrap;
+}
+
+.h1 {
+  flex: 1 1 420px;
+  min-width: 280px;
+}
+
+.highlight {
+  display: inline-block;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #f0c36d;
+  text-shadow: 0 0 10px rgba(240, 195, 109, 0.45);
+  background: linear-gradient(135deg, #ffe7a3 0%, #c07b2b 45%, #ffefcc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* حاوية الصورة الرئيسية: تحدد موقع الصورة وتسمح بالتأثيرات عند المرور عليها */
+.hero-image-wrapper {
+  position: relative;
+  width: 600px;
+  max-width: 90vw;
+  z-index: 5;
+  flex: 0 1 500px;
+}
+
+.hero-image-wrapper img {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-left: 0;
+}
+
+.hero-effect-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.hero-image-wrapper:hover .hero-effect-layer,
+.hero-image-wrapper.is-active .hero-effect-layer {
+  opacity: 1;
+}
+
+.hero-effect-layer::before,
+.hero-effect-layer::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.95),
+    transparent
+  );
+  filter: blur(1px);
+  animation: float-spark 1.6s ease-in-out infinite;
+}
+
+.hero-effect-layer::before {
+  width: 140px;
+  height: 2px;
+  top: 20%;
+  left: 10%;
+  transform: rotate(-20deg);
+}
+
+.hero-effect-layer::after {
+  width: 180px;
+  height: 2px;
+  bottom: 18%;
+  right: 8%;
+  transform: rotate(18deg);
+  animation-delay: 0.4s;
+}
+
+.hero-effect-layer .spark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: sparkle 1.2s ease-in-out infinite;
+}
+
+/* ===== أقسام About والقصص التعريفية ===== */
+/* هذه الأقسام تعرض معلومات عن الفنان بشكل منظم مع صورة ومحتوى متوازن */
+.about-story-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px 30px 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.about-story-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-story-image {
+  flex: 0 1 320px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.about-story-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.about-story-content {
+  flex: 1 1 420px;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 24px;
+  color: var(--text);
+}
+
+.about-story-content h2 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 28px;
+}
+
+.about-story-content p {
+  margin: 0;
+  line-height: 1.8;
+  font-size: 16px;
+  color: var(--text);
+}
+
+/* ===== قسم الفيديوهات والكروت ===== */
+/* قسم الفيديوهات: يضيف مساحة أعلى القسم ويضع الكروت في موضع واضح */
+.video-cards-section {
+  margin-top: 20px;
+  padding: 12px 30px 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  color: var(--text);
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cards-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 0;
+  -webkit-overflow-scrolling: touch;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.cards-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  /* automatic animation: continuous horizontal scroll */
+  animation: move-right 20s linear infinite;
+  will-change: transform;
+  transition: transform 220ms cubic-bezier(.22,.9,.35,1);
+}
+
+/* Pause auto-scroll when hovering the wrapper (desktop) */
+.cards-wrapper:hover .cards-track {
+  animation-play-state: paused;
+}
+}
+
+.cards-track.is-paused,
+.cards-track.is-following {
+  animation-play-state: paused;
+}
+
+/* الكرت: شكل كل بطاقة فيديو مع خلفية شفافة، حدود، وظلال، وتأثير عند المرور */
+.card {
+  width: 320px;
+  min-width: 320px;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card.is-hovered {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+/* removed 3D hover effect per request */
+
+.card iframe {
+  width: 100%;
+  height: 180px;
+  border: 0;
+}
+
+/* Lightweight YouTube placeholder (thumbnail + play button) */
+.youtube-lite {
+  width: 100%;
+  height: 180px;
+  display: block;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  border: 0;
+}
+.youtube-lite img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.yt-play-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+}
+.yt-play-button:after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 18px;
+  width: 0;
+  height: 0;
+  border-left: 18px solid #fff;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+.card-content {
+  padding: 15px 16px 20px;
+  color: var(--card-title);
+}
+
+.card-content h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: var(--card-title);
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--card-text);
+}
+
+/* Indicator for linked images inside about sections */
+.about-story-image {
+  position: relative;
+}
+.about-story-image .image-link {
+  display: inline-block;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.about-story-image .image-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.about-story-image .link-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  pointer-events: none;
+}
+
+/* ===== التذييل والروابط الاجتماعية ===== */
+/* التذييل: يضع الروابط الاجتماعية في أسفل الصفحة بشكل مركزي */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 20px 50px;
+  color: var(--text);
+}
+
+.footer p {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.header-socials {
+  width: auto;
+  margin-left: 0;
+  gap: 14px;
+  justify-content: center;
+  padding: 4px 8px;
+  margin-right: 0;
+}
+
+.header-socials a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.header-socials a:hover {
+  transform: translateY(-3px) scale(1.06);
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.social-links img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-left: 0;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ===== استجابة الصفحة للشاشات الصغيرة ===== */
+/* استجابة الموبايل: يعدّل ترتيب العناصر وتغيير الحواف والمسافات عند الصغر */
+@media (max-width: 768px) {
+  header {
+    padding: 8px 10px;
+  }
+
+  nav {
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .social-links a {
+    width: 42px;
+    height: 42px;
+    padding: 3px;
+  }
+}
+
+/* ===== الرسوم المتحركة ===== */
+/* حركة الكروت: تحريك الفيديوهات على اليمين واليسار بشكل مستمر */
+@keyframes move-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-spark {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(0) rotate(var(--angle, 0deg));
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-8px) rotate(var(--angle, 0deg));
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fall-music {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--drift, 0px), 110vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  header {
+    padding: 8px 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    position: relative;
+    width: 100%;
+  }
+
+  .a-button,
+  .lang-toggle,
+  .theme-toggle {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .header-links {
+    width: auto;
+    justify-content: center;
+    order: 2;
+    margin-top: 0;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .header-links a {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    order: 3;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .hero-image-wrapper {
+    position: static;
+    width: min(100%, 320px);
+    margin: 0 auto 20px;
+  }
+
+  .hero-effect-layer {
+    display: none;
+  }
+
+  .h1 {
+    padding: 18px 14px 10px;
+  }
+
+  h1 {
+    position: static;
+    font-size: 28px;
+    line-height: 1.2;
+    max-width: 100%;
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .hero-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 15px 16px;
+  }
+
+  img {
+    position: static;
+    display: block;
+    width: min(100%, 320px);
+    padding-left: 0;
+    margin: 0 auto 20px;
+  }
+
+  .video-cards-section {
+    margin-top: 20px;
+    padding: 20px 15px 40px;
+  }
+
+  .cards-wrapper {
+    padding: 0;
+  }
+
+  .cards-track {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    animation: none;
+  }
+
+  .card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Disable 3D effects and interactive transforms on small screens */
+  .cards-wrapper {
+    perspective: none;
+  }
+
+  .cards-track {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .card,
+  .card:hover {
+    transform: none !important;
+    backface-visibility: visible !important;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 6px 8px;
+  }
+
+  nav {
+    padding: 5px 8px;
+    gap: 5px;
+  }
+
+  .a-button,
+  .lang-toggle,
+  .theme-toggle {
+    padding: 7px 9px;
+    font-size: 13px;
+  }
+
+  .header-links a {
+    padding: 3px 6px;
+    font-size: 11px;
+  }
+
+  .hero-section {
+    padding: 18px 12px 14px;
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}

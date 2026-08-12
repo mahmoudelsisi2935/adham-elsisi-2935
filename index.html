@@ -1,0 +1,352 @@
+<!-- بداية المستند HTML -->
+<!doctype html>
+<!-- بداية العنصر الجذري للصفحة -->
+<html lang="en">
+  <!-- بداية رأس الصفحة الذي يحتوي على معلومات التعريف الخاصة بالصفحة -->
+  <head>
+    <!-- تعريف ترميز الأحرف المستخدم في الصفحة -->
+    <meta charset="UTF-8" />
+    <!-- ضبط العرض بحيث يناسب مختلف أحجام الشاشات -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- عنوان الصفحة الذي يظهر في شريط المتصفح -->
+    <title>Adham Elsisi</title>
+    <!-- ربط ملف الأنماط الخارجي بالصفحة -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!-- بداية جسم الصفحة الذي يحتوي على المحتوى الظاهر للمستخدم -->
+  <body>
+    <!-- بداية الهيدر العلوي للصفحة -->
+    <header>
+      <!-- بداية شريط التنقل في الهيدر -->
+      <nav>
+        <!-- زر تشغيل تأثير المطر الموسيقي -->
+        <button class="a-button" id="musicButton" aria-label="Open music rain">
+          A
+        </button>
+        <!-- مجموعة الروابط الرئيسية في شريط التنقل -->
+        <div class="header-links">
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#skills" data-i18n="nav.skills">Skills</a>
+          <a href="#experience" data-i18n="nav.experience">Experience</a>
+          <a href="#links" data-i18n="nav.links">Links</a>
+        </div>
+        <!-- مجموعة الأزرار الإضافية في شريط التنقل -->
+        <div class="nav-actions">
+          <!-- زر تبديل اللغة -->
+          <button
+            class="lang-toggle"
+            id="langToggle"
+            aria-label="Switch language"
+            title="Switch language"
+          >
+            AR
+          </button>
+          <!-- زر تبديل الوضع بين الداكن والفاتح -->
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark and light mode"
+            title="Toggle dark and light mode"
+          >
+            🌙
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!-- عنصر التأثير البصري للمطر الموسيقي -->
+    <div class="music-rain" id="musicRain" aria-hidden="true"></div>
+
+    <!-- بداية قسم البطل الرئيسي الذي يحتوي على العنوان والصورة -->
+    <div class="hero-section">
+      <!-- حاوية العنوان الرئيسي في الصفحة -->
+      <div class="h1">
+        <h1>
+          <!-- النص التعريفي في مقدمة الصفحة -->
+          <span data-i18n="hero.greeting">Hi My Name Is</span>
+          <br />
+          <!-- الاسم البارز في الصفحة -->
+          <span class="highlight" data-i18n="hero.name">ADHAM-ELSISI</span>
+          <br />
+          <!-- وصف الدور أو المهنة المعروض -->
+          <span data-i18n="hero.role">I'am A Singer & guitar player.</span>
+        </h1>
+      </div>
+      <!-- حاوية الصورة الرئيسية الخاصة بالملف الشخصي -->
+      <div class="hero-image-wrapper">
+        <img
+          id="adham"
+          src="./images/adham.png"
+          alt="adham elsisi"
+          loading="eager"
+        />
+        <!-- طبقة تأثير خفيفة فوق الصورة -->
+        <div class="hero-effect-layer"></div>
+      </div>
+    </div>
+
+    <!-- بداية قسم "About" الذي يعرض معلومات عن الفنان -->
+    <section class="about-story-section" id="about">
+      <!-- صورة القسم التعريفي الأول -->
+      <div class="about-story-image">
+        <img src="./images/about1.jpeg" alt="Adham Elsisi" loading="lazy" />
+      </div>
+      <!-- محتوى القسم التعريفي الأول -->
+      <div class="about-story-content">
+        <h2 data-i18n="sections.about">about</h2>
+        <p data-i18n="about.paragraph1">
+          Adham Elsisi is a talented singer and guitarist who discovered his passion for music early in life.
+          He kept developing his skills through practice, dedication, and performance,
+          and he continues to grow with every new opportunity.
+        </p>
+      </div>
+    </section>
+
+    <!-- بداية القسم التعريفي الثاني -->
+    <section class="about-story-section reverse" id="skills">
+      <!-- صورة القسم التعريفي الثاني -->
+      <div class="about-story-image">
+        <img src="./images/skills - Copy.jpeg" alt="Adham Elsisi" loading="lazy" />
+      </div>
+      <!-- محتوى القسم التعريفي الثاني -->
+      <div class="about-story-content">
+        <h2 data-i18n="sections.skills">skills</h2>
+        <p data-i18n="about.paragraph2">
+          His journey was shaped by constant learning and a strong love for performing.
+          Every stage he stepped onto helped him become more confident and expressive as an artist.
+        </p>
+      </div>
+    </section>
+
+    <!-- بداية القسم التعريفي الثالث -->
+    <section class="about-story-section" id="experience">
+      <!-- صورة القسم التعريفي الثالث -->
+      <div class="about-story-image">
+        <img src="./images/experiance - Copy.jpeg" alt="Adham Elsisi" loading="lazy" />
+      </div>
+      <!-- محتوى القسم التعريفي الثالث -->
+      <div class="about-story-content">
+        <h2 data-i18n="sections.experience">experience</h2>
+        <p data-i18n="about.paragraph3">
+          Music became more than a hobby for him; it became his way of sharing emotions,
+          personality, and creativity with the world.
+        </p>
+      </div>
+    </section>
+
+    <!-- بداية القسم التعريفي الرابع -->
+    <section class="about-story-section reverse" id="links">
+      <!-- صورة القسم التعريفي الرابع (اصبحت رابطاً) -->
+      <div class="about-story-image">
+        <a href="https://youtu.be/jk2p9TEi-zA?si=G4wxN9UWtWik2JPT" target="_blank" rel="noopener noreferrer" class="image-link" aria-label="Open video">
+          <img src="./images/links.jpeg" alt="Adham Elsisi" loading="lazy" />
+          <span class="link-badge" aria-hidden="true">▶</span>
+        </a>
+      </div>
+      <!-- محتوى القسم التعريفي الرابع -->
+      <div class="about-story-content">
+        <h2 data-i18n="sections.links">links</h2>
+        <p data-i18n="about.paragraph4">
+          Through performance and practice, he built a unique voice that connects with people
+          and leaves a lasting impression.
+        </p>
+      </div>
+    </section>
+
+    <!-- بداية قسم الفيديوهات المعروضة في الصفحة -->
+    <section class="video-cards-section">
+      <!-- عنوان قسم أحدث الفيديوهات -->
+      <h2 class="section-title" data-i18n="sections.latestVideos">Latest Videos</h2>
+      <!-- حاوية تحتوي على جميع كروت الفيديوهات -->
+      <div class="cards-wrapper">
+        <!-- حاوية عرض الكروت في سطر واحد أو أكثر -->
+        <div class="cards-track">
+          <!-- بداية أول كرت فيديو -->
+          <article class="card">
+            <!-- iframe عرض الفيديو داخل الصفحة -->
+            <iframe
+              src="https://www.youtube.com/embed/hzfUlNw3cNg?si=wQGcrOihDHim2G5e"
+              title="Video 1"
+              loading="lazy"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+            <!-- محتوى وصف الفيديو الأول -->
+            <div class="card-content">
+              <h3 data-i18n="cards.card1.title">وقال ايه</h3>
+              <p data-i18n="cards.card1.text">ادهم السيسي وهو يعزف بالجيتار علي اغنية قال ايه</p>
+            </div>
+          </article>
+
+          <!-- بداية كرت الفيديو الثاني -->
+          <article class="card">
+            <!-- iframe عرض الفيديو الثاني -->
+            <iframe
+              src="https://www.youtube.com/embed/lITRac2b43A?si=vQkZyHr7CgRyuLRs"
+              title="Video 2"
+              loading="lazy"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+            <!-- محتوى وصف الفيديو الثاني -->
+            <div class="card-content">
+              <h3 data-i18n="cards.card2.title">اه يا عيني يا ليل</h3>
+              <p data-i18n="cards.card2.text">ادهم السيسي و هو يعزف اغنية اه يا عيني يا ليل بالجيتار</p>
+            </div>
+          </article>
+
+          <!-- بداية كرت الفيديو الثالث -->
+          <article class="card">
+            <!-- iframe عرض الفيديو الثالث -->
+            <iframe
+              src="https://www.youtube.com/embed/3-B9T_hES1o?si=SQVtW-xCTJedwW5Q"
+              title="Video 3"
+              loading="lazy"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+            <!-- محتوى وصف الفيديو الثالث -->
+            <div class="card-content">
+              <h3 data-i18n="cards.card3.title">تاهت في الاماكن</h3>
+              <p data-i18n="cards.card3.text">
+                عزف محمود السيسي و غناء سيف الاسلام في اغنية تاهت في الاماكن
+              </p>
+            </div>
+          </article>
+
+          <!-- بداية كرت الفيديو الرابع -->
+          <article class="card">
+            <!-- iframe عرض الفيديو الرابع -->
+            <iframe
+              src="https://www.youtube.com/embed/XwRIaiHhv2A?si=QRyXFBV72-ipVp3A"
+              title="Video 4"
+              loading="lazy"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+            <!-- محتوى وصف الفيديو الرابع -->
+            <div class="card-content">
+              <h3 data-i18n="cards.card4.title">ديو جيتار</h3>
+              <p data-i18n="cards.card4.text">عزف ديو مبين ادهم السيسي و نورالدين</p>
+            </div>
+          </article>
+
+          <!-- بداية كرت الفيديو الخامس -->
+          <article class="card">
+            <!-- iframe عرض الفيديو الخامس -->
+            <div class="youtube-lite" data-id="C36cW1VTDT0" data-title="حبيبتي شرطة مايله في فراغ" role="button" tabindex="0">
+              <img src="https://i.ytimg.com/vi/C36cW1VTDT0/hqdefault.jpg" alt="حبيبتي شرطة مايله في فراغ" loading="lazy" />
+              <div class="yt-play-button" aria-hidden="true"></div>
+            </div>
+            <!-- محتوى وصف الفيديو الخامس -->
+            <div class="card-content">
+              <h3 data-i18n="cards.card5.title">حبيبتي شرطة مايله في فراغ</h3>
+              <p data-i18n="cards.card5.text">
+                حفل النبي دانيال مع غناء ادهم السيسي اغنية حبيتي شرطة مايله في
+                فراغ
+              </p>
+            </div>
+          </article>
+          <!-- بداية كرت الفيديو السادس (اغنيه الفيب لا) -->
+          <article class="card">
+            <div class="youtube-lite" data-id="VLB2yWbcbiQ" data-title="اغنيه الفيب لا" role="button" tabindex="0">
+              <img src="https://i.ytimg.com/vi/VLB2yWbcbiQ/hqdefault.jpg" alt="اغنيه الفيب لا" loading="lazy" />
+              <div class="yt-play-button" aria-hidden="true"></div>
+            </div>
+            <div class="card-content">
+              <h3 data-i18n="cards.card6.title">اغنيه الفيب لا</h3>
+              <p data-i18n="cards.card6.text">اغننيه الفيب لا كلمات و غناء ادهم السيسي</p>
+            </div>
+          </article>
+
+          <!-- بداية كرت الفيديو السابع (البيئه) -->
+          <article class="card">
+            <div class="youtube-lite" data-id="DtsTc-mXA5U" data-title="البيئه" role="button" tabindex="0">
+              <img src="https://i.ytimg.com/vi/DtsTc-mXA5U/hqdefault.jpg" alt="البيئه" loading="lazy" />
+              <div class="yt-play-button" aria-hidden="true"></div>
+            </div>
+            <div class="card-content">
+              <h3 data-i18n="cards.card7.title">البيئه</h3>
+              <p data-i18n="cards.card7.text">كلمات و غناء ادهم السيسي اغنية البيئة</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- بداية التذييل السفلي للصفحة -->
+    <footer class="footer">
+      <!-- عنوان التذييل -->
+      <p data-i18n="footer.follow">Follow Adham</p>
+      <!-- مجموعة الروابط الاجتماعية في التذييل -->
+      <div class="social-links">
+        <!-- رابط فيسبوك -->
+        <a
+          href="https://www.facebook.com/share/1RFwQHbspB/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <img src="./images/FACEBOOK.jpeg" alt="Facebook" loading="lazy" />
+        </a>
+        <!-- رابط إنستجرام -->
+        <a
+          href="https://www.instagram.com/adham._elsisi?igsh=YTR4azBjcXd0bGxu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <img src="./images/INSTAGRAM.jpeg" alt="Instagram" loading="lazy" />
+        </a>
+        <!-- رابط تيك توك -->
+        <a
+          href="https://www.tiktok.com/@adham_elsisi?_r=1&_t=ZS-98HXjXqlLQD"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+        >
+          <img src="./images/TIKTOK.jpeg" alt="TikTok" loading="lazy" />
+        </a>
+        <!-- رابط يوتيوب -->
+        <a
+          href="http://www.youtube.com/@AdhamElsisi-2935"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+        >
+          <img src="./images/youtube.png" alt="YouTube" loading="lazy" />
+        </a>
+      </div>
+    </footer>
+
+    <!-- تحميل ملف JavaScript الخاص بالصفحة -->
+    <script src="app.js" defer></script>
+  </body>
+</html>
